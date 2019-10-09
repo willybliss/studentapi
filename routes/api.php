@@ -14,10 +14,19 @@ use Illuminate\Http\Request;
 */
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
+    
     return $request->user();
 });
-Route::apiResource('/products', 'ProductController');
 
-Route::group(['prefix' => 'products'], function () {
-    Route::apiResource('/{product}/reviews','ReviewController');
-});
+//list students
+Route::get('students','StudentController@index');
+
+Route::get('student/{id}','StudentController@show');
+
+Route::post('student','StudentController@store');
+
+Route::put('student','StudentController@store');
+
+Route::delete('student/{id}','StudentController@destroy');
+
+
