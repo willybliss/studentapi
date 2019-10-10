@@ -16,12 +16,13 @@ class Student extends JsonResource
     {
        // return parent::toArray($request);
        return [
-          'student_id' =>$this->student_id,
+         'responseMessage' => "Success", "responseCode" => 200,
+        'data'=>['student_id' =>$this->student_id,
           'Name' => $this->Name,
           'Address'=> $this->Address,
           'gender'=> $this->gender,
           'year'=>$this->year
-
-       ];
+       ],
+      ];
     }
 }

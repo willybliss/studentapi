@@ -16,7 +16,7 @@ class StudentController extends Controller
     public function index()
     {
         //get students
-        $students = student::paginate(5);
+        $students = student::all();
 
         return StudentResource::collection($students);
     }
@@ -45,13 +45,8 @@ class StudentController extends Controller
         if($student->save()) {
             return new studentResource($student);
         }
-/*
- 'student_id' =>$this->student_id,
-          'Name' => $this->Name,
-          'Address'=> $this->Address,
-          'gender'=> $this->gender
 
-*/
+
     }
 
     /**
@@ -106,7 +101,7 @@ class StudentController extends Controller
         if($student->delete()) {
 
         return new studentResource($student);
-        
+
         }
     }
 }
